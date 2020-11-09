@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+#  database:
+#    image: postgres:11-alpine
+#    environment:
+#      POSTGRES_USER: guestbook
+#      POSTGRES_PASSWORD: guestbook
+#      POSTGRES_DB: guestbook
+#    ports: [5432]
+#      - 10336:3306
+
+  database:
+    image: mariadb:10
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: my-pw
+      MYSQL_DATABASE: guestbook
+      MYSQL_USER: guestbook
+      MYSQL_PASSWORD: guestbook
+    ports: [3306]
+
+  redis:
+    image: redis:5-alpine
+    restart: always
+    ports: [6379]
